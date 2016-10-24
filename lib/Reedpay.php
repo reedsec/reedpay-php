@@ -6,8 +6,7 @@ class Reedpay
 {
 	public static $apiKey;
 
-	// public static $apiBase = 'https://xpay.reedsec.com';
-	public static $apiBase = 'http://localhost';
+	public static $apiBase = 'https://xpay.reedsec.com';
 
 	public static $apiVersion = '0.0.1';
 
