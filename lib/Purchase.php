@@ -19,6 +19,11 @@ class Payment extends ApiResource
 		return self::_create($params, $options);
 	}
 
+	public static function pay($params = null, $options = null)
+	{
+		return self::_pay($params, $options);
+	}
+
 	// public function save($options = null)
 	// {
 	// 	return $this->_save($options);

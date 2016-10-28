@@ -49,7 +49,7 @@ abstract class ApiResource extends ReedpayObject
 	public static function classUrl()
 	{
 		$base = static::className();
-		return "/secapi/v1/${base}";
+		return "/secapi/v1_1/${base}";
 	}
 
 	public function instanceUrl()
@@ -116,6 +116,15 @@ abstract class ApiResource extends ReedpayObject
 	{
 		self::_validateParams($params);
 		$url = static::classUrl();
+
+		list($response, $opts) = static::_staticRequest('post', $url, $params, $options);
+		return Utils\Util::convertToReedpayObject($response, $opts);
+	}
+
+	protected static function _pay($params = null, $options = null)
+	{
+		self::_validateParams($params);
+		$url = static::classUrl() . '/directdebit';
 
 		list($response, $opts) = static::_staticRequest('post', $url, $params, $options);
 		return Utils\Util::convertToReedpayObject($response, $opts);
