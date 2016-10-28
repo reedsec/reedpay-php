@@ -9,8 +9,8 @@ class Notification extends ApiResource
 		return self::_query($id, $options);
 	}
 
-	public static function history($params = null, $options = null)
+	public static function retireve($params = null, $options = null)
 	{
-		return self::_history($params, $options);
+		return self::_retrieve($params, $options);
 	}
 }

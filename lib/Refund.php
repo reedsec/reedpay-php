@@ -24,8 +24,8 @@ class Refund extends ApiResource
 		return "$base/$paymentExtn/refund/$extn";
 	}
 
-	public function save($opts = null)
-	{
-		return $this->_save($opts);
-	}
+	// public function save($opts = null)
+	// {
+	// 	return $this->_save($opts);
+	// }
 }

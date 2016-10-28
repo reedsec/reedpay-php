@@ -103,7 +103,7 @@ abstract class ApiResource extends ReedpayObject
 		return $instance;
 	}
 
-	protected static function _history($params = null, $options = null)
+	protected static function _retrieve($params = null, $options = null)
 	{
 		self::_validateParams($params);
 		$url = static::classUrl();
@@ -121,24 +121,24 @@ abstract class ApiResource extends ReedpayObject
 		return Utils\Util::convertToReedpayObject($response, $opts);
 	}
 
-	protected function _save($options = null)
-	{
-		$params = $this->serializeParameters();
-		if (count($params) > 0) {
-			$url = $this->instanceUrl();
-			list($response, $opts) = $this->_request('put', $url, $params, $options);
-			$this->refreshFrom($response, $opts);
-		}
-		return $this;
-	}
+	// protected function _save($options = null)
+	// {
+	// 	$params = $this->serializeParameters();
+	// 	if (count($params) > 0) {
+	// 		$url = $this->instanceUrl();
+	// 		list($response, $opts) = $this->_request('put', $url, $params, $options);
+	// 		$this->refreshFrom($response, $opts);
+	// 	}
+	// 	return $this;
+	// }
 
-	protected function _delete($params = null, $options = null)
-	{
-		self::_validateParams($params);
+	// protected function _delete($params = null, $options = null)
+	// {
+	// 	self::_validateParams($params);
 
-		$url = $this->instanceUrl();
-		list($response, $opts) = $this->_request('delete', $url, $params, $options);
-		$this->refreshFrom($response, $opts);
-		return $this;
-	}
+	// 	$url = $this->instanceUrl();
+	// 	list($response, $opts) = $this->_request('delete', $url, $params, $options);
+	// 	$this->refreshFrom($response, $opts);
+	// 	return $this;
+	// }
 }
